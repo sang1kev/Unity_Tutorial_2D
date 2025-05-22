@@ -22,7 +22,10 @@ public class Movement : MonoBehaviour
         //Time.deltatime으로 서로 다른 프레임에서 같은 속도를 냄
         //fps 100에서 1초에 100이 움직임 fps 30에선 30을 움직임
         //따라서 모든 fps에서 같은 속도를 내기 위해 deltatime을 사용 
-        if (Input.GetKey(KeyCode.LeftShift))    //달리기
+        // 입력값에 대한 약속된 시스템
+        // Input System (Old - Legacy)
+        // 이동, 점프, interaction 등 wasd, space, mouse click
+        /*if (Input.GetKey(KeyCode.LeftShift))    //달리기
         {
             moveSpeed = moveSpeed * 4;
             if (Input.GetKey(KeyCode.W))
@@ -43,7 +46,7 @@ public class Movement : MonoBehaviour
             }
             moveSpeed = moveSpeed / 4;
         }
-        else if (Input.GetKey(KeyCode.LeftAlt))
+        else if (Input.GetKey(KeyCode.C))
         {
             moveSpeed = moveSpeed / 4;
             if (Input.GetKey(KeyCode.W))
@@ -82,6 +85,13 @@ public class Movement : MonoBehaviour
             {
                 transform.position += Vector3.right * (moveSpeed * Time.deltaTime);
             }
-        }
+        }*/
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+
+        Vector3 dir = new Vector3(h, 0, v);
+        Debug.Log($"현재 입력 : {dir}");
+
+        transform.position += dir * moveSpeed * Time.deltaTime;
     }
 }
