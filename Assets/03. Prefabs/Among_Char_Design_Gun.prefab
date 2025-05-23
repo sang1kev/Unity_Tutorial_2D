@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 1639068172136106071}
   m_Layer: 0
   m_Name: Among_Char_Design_Gun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
