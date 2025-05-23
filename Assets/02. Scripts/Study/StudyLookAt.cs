@@ -3,7 +3,8 @@ using UnityEngine;
 public class StudyLookAt : MonoBehaviour
 {
     public Transform targetTF;
-    private Transform turretTF;
+    private Transform turretBulletTF;
+    private Transform turretMissleTF;
 
     public GameObject bulletPrefab;
     public Transform[] firePos;
@@ -14,13 +15,15 @@ public class StudyLookAt : MonoBehaviour
     void Start()
     {
         targetTF = GameObject.FindGameObjectWithTag("Player").transform;
-        turretTF = GameObject.Find("Turret_Head").transform;
+        turretBulletTF = GameObject.Find("Turret_Bullet_Head").transform;
+        turretMissleTF = GameObject.Find("Turret_Missle_Head").transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        turretTF.LookAt(targetTF);
+        turretBulletTF.LookAt(targetTF);
+        turretMissleTF.LookAt(targetTF);
 
         timer += Time.deltaTime;
         if (timer >= coolTime) 
